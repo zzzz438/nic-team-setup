@@ -16,8 +16,8 @@ Get-NetAdapter
 $network1 = Read-Host "第一个网络接口是什么？" 
 $network2 = Read-Host "第二个网络接口是什么？" 
 $nicname = Read-Host "这个NIC团队叫什么名字？" 
-New-VMSwitch -Name $nicname -NetAdapterName "$network1","$network2" -EnableEmbeddedTeaming $true 
-Set-VMSwitchTeam -Name $nicname -LoadBalancingAlgorithm Dynamic 
+New-NetSwitchTeam -Name $nicname -NetAdapterName "$network1","$network2" -EnableEmbeddedTeaming $true 
+Set-NetSwitchTeamTeam -Name $nicname -LoadBalancingAlgorithm Dynamic 
 cls 
 if ($error.Count -eq 0) { 
 echo "NIC团队已成功创建，恭喜！这个窗口会自动关闭。" 
@@ -39,8 +39,8 @@ $network1 = Read-Host "第一个网络接口是什么？"
 $network2 = Read-Host "第二个网络接口是什么？" 
 $network3 = Read-Host "第三个网络接口是什么？" 
 $nicname = Read-Host "这个NIC团队叫什么名字？" 
-New-VMSwitch -Name $nicname -NetAdapterName "$network1","$network2","$network3" -EnableEmbeddedTeaming $true 
-Set-VMSwitchTeam -Name $nicname -LoadBalancingAlgorithm Dynamic 
+New-NetSwitchTeam -Name $nicname -NetAdapterName "$network1","$network2","$network3" -EnableEmbeddedTeaming $true 
+Set-NetSwitchTeamTeam -Name $nicname -LoadBalancingAlgorithm Dynamic 
 cls 
 if ($error.Count -eq 0) { 
 echo "NIC团队已成功创建，恭喜！这个窗口会自动关闭。" 
@@ -64,8 +64,8 @@ $network2 = Read-Host "第二个网络接口是什么？"
 $network3 = Read-Host "第三个网络接口是什么？" 
 $network4 = Read-Host "第四个网络接口是什么？" 
 $nicname = Read-Host "这个NIC团队叫什么名字？" 
-New-VMSwitch -Name $nicname -NetAdapterName "$network1","$network2","$network3","$network4" -EnableEmbeddedTeaming $true 
-Set-VMSwitchTeam -Name $nicname -LoadBalancingAlgorithm Dynamic 
+New-NetSwitchTeam -Name $nicname -NetAdapterName "$network1","$network2","$network3","$network4" -EnableEmbeddedTeaming $true 
+Set-NetSwitchTeamTeam -Name $nicname -LoadBalancingAlgorithm Dynamic 
 cls 
 if ($error.Count -eq 0) { 
 echo "NIC团队已成功创建，恭喜！这个窗口会自动关闭。" 
@@ -89,7 +89,7 @@ if ($start -eq 2) {
 while($true) { 
 Get-NetAdapter 
 $nicteaming = Read-Host "你想删除哪个NIC团队？" 
-Remove-VMSwitch $nicteaming 
+Remove-NetSwitchTeam $nicteaming 
 cls 
 if ($error.Count -eq 0) { 
 echo "NIC团队已成功删除，恭喜！这个窗口会自动关闭。" 
