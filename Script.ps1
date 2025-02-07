@@ -1,6 +1,3 @@
-# creator: Skyfay 
-# Last edit: 29.03.2022 
- 
 cls 
  
 while($true) { 
@@ -17,7 +14,7 @@ cls
 while($true) { 
 Get-NetAdapter 
 $network1 = Read-Host "第一个网络接口是什么？" 
-$network2 = Read-Host "第一个网络接口是什么？" 
+$network2 = Read-Host "第二个网络接口是什么？" 
 $nicname = Read-Host "这个NIC团队叫什么名字？" 
 New-VMSwitch -Name $nicname -NetAdapterName "$network1","$network2" -EnableEmbeddedTeaming $true 
 Set-VMSwitchTeam -Name $nicname -LoadBalancingAlgorithm Dynamic 
@@ -39,8 +36,8 @@ cls
 while($true) { 
 Get-NetAdapter 
 $network1 = Read-Host "第一个网络接口是什么？" 
-$network2 = Read-Host "第一个网络接口是什么？" 
-$network3 = Read-Host "第一个网络接口是什么？" 
+$network2 = Read-Host "第二个网络接口是什么？" 
+$network3 = Read-Host "第三个网络接口是什么？" 
 $nicname = Read-Host "这个NIC团队叫什么名字？" 
 New-VMSwitch -Name $nicname -NetAdapterName "$network1","$network2","$network3" -EnableEmbeddedTeaming $true 
 Set-VMSwitchTeam -Name $nicname -LoadBalancingAlgorithm Dynamic 
@@ -63,9 +60,9 @@ cls
 Get-NetAdapter 
 while($true) { 
 $network1 = Read-Host "第一个网络接口是什么？" 
-$network2 = Read-Host "第一个网络接口是什么？" 
-$network3 = Read-Host "第一个网络接口是什么？" 
-$network4 = Read-Host "第一个网络接口是什么？" 
+$network2 = Read-Host "第二个网络接口是什么？" 
+$network3 = Read-Host "第三个网络接口是什么？" 
+$network4 = Read-Host "第四个网络接口是什么？" 
 $nicname = Read-Host "这个NIC团队叫什么名字？" 
 New-VMSwitch -Name $nicname -NetAdapterName "$network1","$network2","$network3","$network4" -EnableEmbeddedTeaming $true 
 Set-VMSwitchTeam -Name $nicname -LoadBalancingAlgorithm Dynamic 
