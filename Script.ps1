@@ -1,33 +1,36 @@
+# creator: Skyfay 
+# Last edit: 29.03.2022 
+ 
 cls 
  
 while($true) { 
-$start = Read-Host "ä½ æƒ³åˆ›å»ºä¸€ä¸ªNICå›¢é˜Ÿï¼ˆ1ï¼‰è¿˜æ˜¯åˆ é™¤ä¸€ä¸ªNICå›¢é˜Ÿï¼ˆ2ï¼‰ï¼Ÿ" 
+$start = Read-Host "ÄãÏë´´½¨Ò»¸öNICÍÅ¶Ó£¨1£©»¹ÊÇÉ¾³ıÒ»¸öNICÍÅ¶Ó£¨2£©£¿" 
  
 if ($start -eq 1) { 
 while($true) { 
 Get-NetAdapter 
  
-$howmany = Read-Host "ä½ æƒ³æ·»åŠ å¤šå°‘ä¸ªç½‘ç»œæ¥å£åˆ°NICå›¢é˜Ÿï¼ˆ2-4ï¼‰ï¼Ÿ" 
+$howmany = Read-Host "ÄãÏëÌí¼Ó¶àÉÙ¸öÍøÂç½Ó¿Úµ½NICÍÅ¶Ó£¨2-4£©£¿" 
  
 if ($howmany -eq 2) { 
 cls 
 while($true) { 
 Get-NetAdapter 
-$network1 = Read-Host "ç¬¬ä¸€ä¸ªç½‘ç»œæ¥å£æ˜¯ä»€ä¹ˆï¼Ÿ" 
-$network2 = Read-Host "ç¬¬ä¸€ä¸ªç½‘ç»œæ¥å£æ˜¯ä»€ä¹ˆï¼Ÿ" 
-$nicname = Read-Host "è¿™ä¸ªNICå›¢é˜Ÿå«ä»€ä¹ˆåå­—ï¼Ÿ" 
+$network1 = Read-Host "µÚÒ»¸öÍøÂç½Ó¿ÚÊÇÊ²Ã´£¿" 
+$network2 = Read-Host "µÚÒ»¸öÍøÂç½Ó¿ÚÊÇÊ²Ã´£¿" 
+$nicname = Read-Host "Õâ¸öNICÍÅ¶Ó½ĞÊ²Ã´Ãû×Ö£¿" 
 New-VMSwitch -Name $nicname -NetAdapterName "$network1","$network2" -EnableEmbeddedTeaming $true 
 Set-VMSwitchTeam -Name $nicname -LoadBalancingAlgorithm Dynamic 
 cls 
 if ($error.Count -eq 0) { 
-echo "NICå›¢é˜Ÿå·²æˆåŠŸåˆ›å»ºï¼Œæ­å–œï¼è¿™ä¸ªçª—å£ä¼šè‡ªåŠ¨å…³é—­ã€‚" 
+echo "NICÍÅ¶ÓÒÑ³É¹¦´´½¨£¬¹§Ï²£¡Õâ¸ö´°¿Ú»á×Ô¶¯¹Ø±Õ¡£" 
 Start-Sleep -s 6 
 exit 
 break 
 } 
 else { 
     cls 
-    echo "å—¯ï¼Œæ²¡æˆåŠŸã€‚è¯·æ£€æŸ¥æ‹¼å†™å¹¶é‡è¯•ã€‚" 
+    echo "àÅ£¬Ã»³É¹¦¡£Çë¼ì²éÆ´Ğ´²¢ÖØÊÔ¡£" 
 } 
 } 
 } 
@@ -35,22 +38,22 @@ if ($howmany -eq 3) {
 cls 
 while($true) { 
 Get-NetAdapter 
-$network1 = Read-Host "ç¬¬ä¸€ä¸ªç½‘ç»œæ¥å£æ˜¯ä»€ä¹ˆï¼Ÿ" 
-$network2 = Read-Host "ç¬¬ä¸€ä¸ªç½‘ç»œæ¥å£æ˜¯ä»€ä¹ˆï¼Ÿ" 
-$network3 = Read-Host "ç¬¬ä¸€ä¸ªç½‘ç»œæ¥å£æ˜¯ä»€ä¹ˆï¼Ÿ" 
-$nicname = Read-Host "è¿™ä¸ªNICå›¢é˜Ÿå«ä»€ä¹ˆåå­—ï¼Ÿ" 
+$network1 = Read-Host "µÚÒ»¸öÍøÂç½Ó¿ÚÊÇÊ²Ã´£¿" 
+$network2 = Read-Host "µÚÒ»¸öÍøÂç½Ó¿ÚÊÇÊ²Ã´£¿" 
+$network3 = Read-Host "µÚÒ»¸öÍøÂç½Ó¿ÚÊÇÊ²Ã´£¿" 
+$nicname = Read-Host "Õâ¸öNICÍÅ¶Ó½ĞÊ²Ã´Ãû×Ö£¿" 
 New-VMSwitch -Name $nicname -NetAdapterName "$network1","$network2","$network3" -EnableEmbeddedTeaming $true 
 Set-VMSwitchTeam -Name $nicname -LoadBalancingAlgorithm Dynamic 
 cls 
 if ($error.Count -eq 0) { 
-echo "NICå›¢é˜Ÿå·²æˆåŠŸåˆ›å»ºï¼Œæ­å–œï¼è¿™ä¸ªçª—å£ä¼šè‡ªåŠ¨å…³é—­ã€‚" 
+echo "NICÍÅ¶ÓÒÑ³É¹¦´´½¨£¬¹§Ï²£¡Õâ¸ö´°¿Ú»á×Ô¶¯¹Ø±Õ¡£" 
 Start-Sleep -s 6 
 exit 
 break 
 } 
 else { 
     cls 
-    echo "å—¯ï¼Œæ²¡æˆåŠŸã€‚è¯·æ£€æŸ¥æ‹¼å†™å¹¶é‡è¯•ã€‚" 
+    echo "àÅ£¬Ã»³É¹¦¡£Çë¼ì²éÆ´Ğ´²¢ÖØÊÔ¡£" 
     echo "'n" 
 } 
 } 
@@ -59,52 +62,52 @@ if ($howmany -eq 4) {
 cls 
 Get-NetAdapter 
 while($true) { 
-$network1 = Read-Host "ç¬¬ä¸€ä¸ªç½‘ç»œæ¥å£æ˜¯ä»€ä¹ˆï¼Ÿ" 
-$network2 = Read-Host "ç¬¬ä¸€ä¸ªç½‘ç»œæ¥å£æ˜¯ä»€ä¹ˆï¼Ÿ" 
-$network3 = Read-Host "ç¬¬ä¸€ä¸ªç½‘ç»œæ¥å£æ˜¯ä»€ä¹ˆï¼Ÿ" 
-$network4 = Read-Host "ç¬¬ä¸€ä¸ªç½‘ç»œæ¥å£æ˜¯ä»€ä¹ˆï¼Ÿ" 
-$nicname = Read-Host "è¿™ä¸ªNICå›¢é˜Ÿå«ä»€ä¹ˆåå­—ï¼Ÿ" 
+$network1 = Read-Host "µÚÒ»¸öÍøÂç½Ó¿ÚÊÇÊ²Ã´£¿" 
+$network2 = Read-Host "µÚÒ»¸öÍøÂç½Ó¿ÚÊÇÊ²Ã´£¿" 
+$network3 = Read-Host "µÚÒ»¸öÍøÂç½Ó¿ÚÊÇÊ²Ã´£¿" 
+$network4 = Read-Host "µÚÒ»¸öÍøÂç½Ó¿ÚÊÇÊ²Ã´£¿" 
+$nicname = Read-Host "Õâ¸öNICÍÅ¶Ó½ĞÊ²Ã´Ãû×Ö£¿" 
 New-VMSwitch -Name $nicname -NetAdapterName "$network1","$network2","$network3","$network4" -EnableEmbeddedTeaming $true 
 Set-VMSwitchTeam -Name $nicname -LoadBalancingAlgorithm Dynamic 
 cls 
 if ($error.Count -eq 0) { 
-echo "NICå›¢é˜Ÿå·²æˆåŠŸåˆ›å»ºï¼Œæ­å–œï¼è¿™ä¸ªçª—å£ä¼šè‡ªåŠ¨å…³é—­ã€‚" 
+echo "NICÍÅ¶ÓÒÑ³É¹¦´´½¨£¬¹§Ï²£¡Õâ¸ö´°¿Ú»á×Ô¶¯¹Ø±Õ¡£" 
 Start-Sleep -s 6 
 exit 
 break 
 } 
 else { 
     cls 
-    echo "å—¯ï¼Œæ²¡æˆåŠŸã€‚è¯·æ£€æŸ¥æ‹¼å†™å¹¶é‡è¯•ã€‚" 
+    echo "àÅ£¬Ã»³É¹¦¡£Çë¼ì²éÆ´Ğ´²¢ÖØÊÔ¡£" 
 } 
 } 
 } 
 else { 
     cls 
-    echo "è¯·è¾“å…¥ä¸€ä¸ª2åˆ°4ä¹‹é—´çš„å€¼ï¼" 
+    echo "ÇëÊäÈëÒ»¸ö2µ½4Ö®¼äµÄÖµ£¡" 
 } 
 } 
 } 
 if ($start -eq 2) { 
 while($true) { 
 Get-NetAdapter 
-$nicteaming = Read-Host "ä½ æƒ³åˆ é™¤å“ªä¸ªNICå›¢é˜Ÿï¼Ÿ" 
+$nicteaming = Read-Host "ÄãÏëÉ¾³ıÄÄ¸öNICÍÅ¶Ó£¿" 
 Remove-VMSwitch $nicteaming 
 cls 
 if ($error.Count -eq 0) { 
-echo "NICå›¢é˜Ÿå·²æˆåŠŸåˆ é™¤ï¼Œæ­å–œï¼è¿™ä¸ªçª—å£ä¼šè‡ªåŠ¨å…³é—­ã€‚" 
+echo "NICÍÅ¶ÓÒÑ³É¹¦É¾³ı£¬¹§Ï²£¡Õâ¸ö´°¿Ú»á×Ô¶¯¹Ø±Õ¡£" 
 Start-Sleep -s 6 
 exit 
 break 
 } 
 else { 
      cls 
-     echo "å¥½åƒä¸è¡Œï¼è¯·æä¾›ä¸€ä¸ªæ­£ç¡®çš„NICå›¢é˜Ÿé€‚é…å™¨..." 
+     echo "ºÃÏñ²»ĞĞ£¡ÇëÌá¹©Ò»¸öÕıÈ·µÄNICÍÅ¶ÓÊÊÅäÆ÷..." 
 } 
 } 
 } 
 else { 
     cls 
-    echo "è¯·æä¾›é—®é¢˜ä¸­æåˆ°çš„å€¼ï¼" 
+    echo "ÇëÌá¹©ÎÊÌâÖĞÌáµ½µÄÖµ£¡" 
 } 
 } 
